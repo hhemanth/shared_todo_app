@@ -5,16 +5,26 @@
       <h1>Shared Todo App</h1>
       <hr>
       <p>All your todos here</p>
-        <%= form_tag("/todos/add", :method=>"post") do %>
-         <%= text_field_tag(:todo_text) %>
-          <%= submit_tag("Add todo", :class=>"btn") %>
-        <% end %>
+        <%= form_for @todo, :url => { :action => "add" }  do |t|  %>
+          <%= t.text_field  :todo_item %>
+          <%= t.submit "Add todo", class: "btn btn-primary" %>
+       <%end%>
+
+
           <% if !flash[:error].nil? %>
-           <div class="alert alert-error">
-            <button type="button" class="close" data-dismiss="alert" >×</button>
+            <div class="alert alert-error">
+             <button type="button" class="close" data-dismiss="alert">×</button>
              <strong><%= flash[:error] %></strong>
-           </div>
+            </div>
           <% end %>
+
+          <% if !flash[:success].nil? %>
+           <div class="alert alert-success">
+             <button type="button" class="close" data-dismiss="alert">×</button>
+                 <strong><%= flash[:success] %></strong>
+            </div>
+          <% end %>
+
 
 
       <div class="well">
