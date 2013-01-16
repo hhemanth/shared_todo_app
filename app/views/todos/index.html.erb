@@ -1,4 +1,8 @@
 <title>Shared Todo App </title>
 <h1>Shared Todo App</h1>
 <p>All your todos here</p>
-<li> <%= @todo_item1 %> </li>
+<ul>
+  <% @todo_array.each do |t| %>
+   <li> <%= t  %> </li>
+   <% end %>
+</ul>
