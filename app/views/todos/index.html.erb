@@ -1,7 +1,15 @@
 <title>Shared Todo App </title>
-<h1>Shared Todo App</h1>
-<p>All your todos here</p>
-<% @todo_items.each do |t| %>
-  <li> <%= t.todo_item %> </li>
-<% end %>
-<a href="/todos/delete">Delete last todo</a>.
+<div class="container">
+  <div class="row">
+    <div class="span4">
+      <h1>Shared Todo App</h1>
+      <hr>
+      <p>All your todos here</p>
+      <div class="well">
+        <% @todo_items.each do |t| %>
+         <li> <%= t.todo_item %> </li>
+        <% end %>
+      </div> <!-- well -->
+    </div> <!-- span4 -->
+  </div> <!-- row -->
+</div> <!-- container -->
